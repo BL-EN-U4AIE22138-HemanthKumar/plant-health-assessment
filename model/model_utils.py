@@ -9,7 +9,7 @@ import cv2 # Needed if input is numpy array
 # Adjust the path and loading method based on your model framework (Keras, PyTorch, etc.)
 try:
     # Assuming a Keras HDF5 model file
-    model = load_model('model/resnet50_plant_health.h5')
+    model = load_model('model/plant_health_assesment_RESNET50.h5')
     print("ResNet50 model loaded successfully.")
     # Define expected input shape (adjust based on your trained model)
     # For ResNet50, common input sizes are (224, 224, 3)

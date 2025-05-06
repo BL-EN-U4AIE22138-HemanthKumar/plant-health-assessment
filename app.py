@@ -43,7 +43,7 @@ cognito_client = boto3.client(
 )
 
 # --- Model Loading (Placeholder - uncomment and adapt if using ML model) ---
-model = load_prediction_model('model/resnet50_plant_health.h5')
+model = load_prediction_model('model/plant_health_assesment_RESNET50.h5')
 class_labels = ['healthy', 'not_healthy'] # Make sure order matches model training
 
 # --- Helper Functions ---
