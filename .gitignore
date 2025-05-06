@@ -1,0 +1,19 @@
+
+*.pyc
+__pycache__/
+venv/
+*.env
+instance/
+
+.aws/
+credentials
+config
+
+static/uploads/*
+!static/uploads/.gitkeep # Keep the folder but ignore contents
+
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/

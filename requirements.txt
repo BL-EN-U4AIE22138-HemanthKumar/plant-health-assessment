@@ -1,0 +1,8 @@
+Flask>=2.0
+numpy
+opencv-python-headless 
+boto3>=1.16
+tensorflow>=2.5 
+Pillow 
+python-dotenv
+gunicorn

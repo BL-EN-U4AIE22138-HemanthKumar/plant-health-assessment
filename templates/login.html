@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Plant Health Assessment{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10 border border-green-200">
+    <h2 class="text-2xl font-bold text-center text-green-700 mb-6">Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+            <input type="text" id="username" name="username" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+            </div>
+        <div class="flex items-center justify-between">
+            <button type="submit"
+                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 w-full">
+                Sign In
+            </button>
+        </div>
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Don't have an account? <a href="{{ url_for('signup') }}" class="font-bold text-green-600 hover:text-green-800">Sign Up</a>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}

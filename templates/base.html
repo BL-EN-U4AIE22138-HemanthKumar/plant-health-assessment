@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Plant Health Assessment{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    {% block head %}{% endblock %}
+</head>
+<body class="bg-green-50 font-sans antialiased">
+    <nav class="bg-green-700 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{{ url_for('index') }}" class="text-2xl font-bold hover:text-green-200 transition duration-300">🌿 Plant Health</a>
+            <div>
+                {% if session.user %}
+                    <span class="mr-4">Welcome, {{ session.user }}!</span>
+                    <a href="{{ url_for('dashboard') }}" class="mr-2 px-3 py-1 rounded hover:bg-green-600 transition duration-300">Dashboard</a>
+                    <a href="{{ url_for('logout') }}" class="px-3 py-1 rounded hover:bg-green-600 transition duration-300">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="mr-2 px-3 py-1 rounded hover:bg-green-600 transition duration-300">Login</a>
+                    <a href="{{ url_for('signup') }}" class="px-3 py-1 rounded hover:bg-green-600 transition duration-300">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 p-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="p-4 mb-4 text-sm rounded-lg
+                        {% if category == 'danger' %} bg-red-100 text-red-700
+                        {% elif category == 'success' %} bg-green-100 text-green-700
+                        {% elif category == 'warning' %} bg-yellow-100 text-yellow-700
+                        {% else %} bg-blue-100 text-blue-700 {% endif %}"
+                         role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center mt-12 py-4 text-gray-600 text-sm">
+        Plant Health Assessment App &copy; 2025
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

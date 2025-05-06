@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Plant Health Assessment{% endblock %}
+
+{% block head %}
+<style>
+    /* Style for drawing bounding boxes */
+    .bounding-box {
+        position: absolute;
+        border: 2px solid limegreen;
+        box-sizing: border-box; /* Include border in width/height */
+        pointer-events: none; /* Allow clicks to pass through */
+    }
+    #image-container {
+        position: relative; /* Needed for absolute positioning of boxes */
+        display: inline-block; /* Fit container to image */
+        max-width: 100%;
+        overflow: hidden; /* Hide potential overflow if boxes go outside */
+    }
+    #uploaded-image {
+        display: block; /* Remove extra space below image */
+        max-width: 100%;
+        height: auto;
+    }
+    /* Loader styles */
+    .loader {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #16a34a; /* Green */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    /* Hide initially */
+    #loader, #results-area, #error-message {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow-lg border border-green-100">
+    <h2 class="text-2xl font-semibold text-green-800 mb-4">Plant Health Dashboard</h2>
+    <p class="text-gray-600 mb-6">Upload an image of your plant to assess its health under flood stress.</p>
+
+    <form id="upload-form" class="mb-6">
+        <label for="plant-image-input" class="block text-gray-700 text-sm font-bold mb-2">Select Plant Image:</label>
+        <input type="file" id="plant-image-input" name="plantImage" accept="image/png, image/jpeg, image/jpg" required
+               class="block w-full text-sm text-gray-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-full file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-green-100 file:text-green-700
+                      hover:file:bg-green-200 cursor-pointer mb-4 border rounded p-2 focus:outline-none focus:border-green-500"/>
+        <button type="submit"
+                class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">
+            Upload & Analyze
+        </button>
+         <button type="button" id="clear-button"
+                class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-2">
+            Clear
+        </button>
+    </form>
+
+    <div id="loader" class="loader"></div>
+
+    <div id="error-message" class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+        </div>
+
+    <div id="results-area" class="mt-8">
+        <h3 class="text-xl font-semibold text-green-800 mb-4">Analysis Results</h3>
+
+        <div class="mb-6">
+            <h4 class="text-lg font-medium text-gray-700 mb-2">Detected Plants:</h4>
+            <div id="image-container" class="border rounded-lg overflow-hidden shadow-sm">
+                <img id="uploaded-image" src="#" alt="Uploaded Plant Image" class="max-w-full h-auto rounded"/>
+                </div>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-medium text-gray-700 mb-3">Patch Health Analysis:</h4>
+            <div id="patches-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
