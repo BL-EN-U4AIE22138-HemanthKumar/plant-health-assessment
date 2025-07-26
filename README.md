@@ -45,7 +45,7 @@ plant-health-assessment/
 └── requirements.txt
 ```
 
-## 🏁 Setup & Usage
+## Setup & Usage
 
 ### 1. Install dependencies
 
@@ -78,7 +78,7 @@ python src/predict.py --model models/trained_model.h5 --input path/to/leaf.jpg
 
 Generates classification results and optionally overlayed visual output.
 
-## 📈 Sample Output
+## Sample Output
 
 ```
 Image: leaf_test.jpg
