@@ -1,9 +1,9 @@
 
-# Plant Health Assessment 🌿📊
+# Plant Health Assessment
 
 A Python-based solution for evaluating the health of plants using leaf image analysis and machine learning techniques.
 
-## 🔍 Project Overview
+## Project Overview
 
 This repository implements a pipeline to:
 - Analyze plant health by processing leaf images
@@ -11,20 +11,20 @@ This repository implements a pipeline to:
 - Classify the condition of the plant using a trained ML model
 - Provide visual and textual reports on plant status
 
-## 💡 Key Features
+## Key Features
 
-- ✅ Image preprocessing (resizing, normalization, augmentation)  
-- ✅ Machine learning classification (e.g. CNN-based)
-- ✅ Generates interactive reports (charts, labels, visual overlays)
-- ✅ Support for batch processing of multiple images  
+- Image preprocessing (resizing, normalization, augmentation)  
+- Machine learning classification (e.g. CNN-based)
+- Generates interactive reports (charts, labels, visual overlays)
+- Support for batch processing of multiple images  
 
-## 🧰 Technologies Used
+## Technologies Used
 
 - **Language**: Python  
 - **Libraries**: `numpy`, `opencv-python`, `tensorflow` or `scikit-learn`  
 - **Visualization**: `matplotlib`, possibly simple web frontend (Flask/Bokeh)  
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 plant-health-assessment/
@@ -86,25 +86,25 @@ Prediction: Early Blight (Confidence: 92.3%)
 Health Score: Unhealthy
 ```
 
-## 🧩 How It’s Structured
+## How It’s Structured
 
 - `preprocess.py`: handles loading, resizing, normalization, and augmentation.
 - `train.py`: builds and trains the model (CNN or transfer learning).
 - `evaluate.py`: measures metrics like accuracy, precision, recall.
 - `predict.py`: loads the saved model and predicts new images.
 
-## 🔧 Extensibility & To-Do
+## Extensibility & To-Do
 
 - Add support for more crop types and disease categories  
 - Integrate explainable AI (e.g. Grad‑CAM saliency maps)  
 - Build a LightWeight Flask or Streamlit app for web-based inference  
 - Automate workflows or integrate with scheduling systems  
 
-## 👨‍💻 Author
+## Author
 
 **Hemanth Kumar**  
 GitHub: [@BL‑EN‑U4AIE22138‑HemanthKumar](https://github.com/BL-EN-U4AIE22138-HemanthKumar)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
